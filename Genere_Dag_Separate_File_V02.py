@@ -44,9 +44,7 @@ st.title("Générateur de DAGs Airflow")
 storage_path = st.text_input("Chemin de stockage des DAGs", "dags")
 if not os.path.isdir(storage_path):
     st.warning("Le chemin spécifié n'existe pas. Veuillez le créer ou choisir un autre chemin valide.")
-else:
-    st.info("Le chemin est OK.")
-    
+
 
 # Saisie utilisateur
 num_dags = st.number_input("Nombre de DAGs à générer", min_value=1, value=1, step=1)
