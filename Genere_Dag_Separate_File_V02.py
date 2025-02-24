@@ -41,9 +41,12 @@ def git_push(repo_path, commit_message):
 st.title("Générateur de DAGs Airflow")
 
 # Sélection du dossier avec validation
-storage_path = st.text_input("Chemin de stockage des DAGs", "dags")
+#storage_path = st.text_input("Chemin de stockage des DAGs", "dags")
+#if not os.path.isdir(storage_path):
+#    st.warning("Le chemin spécifié n'existe pas. Veuillez le créer ou choisir un autre chemin valide.")
+storage_path = os.path.abspath(st.text_input("Chemin de stockage des DAGs", "dags"))
 if not os.path.isdir(storage_path):
-    st.warning("Le chemin spécifié n'existe pas. Veuillez le créer ou choisir un autre chemin valide.")
+    st.error(f"Le dossier {storage_path} n'existe pas ou n'est pas accessible.")
 
 
 # Saisie utilisateur
